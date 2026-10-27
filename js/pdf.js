@@ -720,6 +720,6 @@ export async function makePdf(state, assets) {
   report.finish();
   pdf.setTitle(baseName(state, assets));
   pdf.setAuthor(COMMON.company);
-  pdf.setCreator("Schede Restauro 3.2");
+  pdf.setCreator("Schede Restauro 3.3");
   return new Blob([await pdf.save()], { type: "application/pdf" });
 }
