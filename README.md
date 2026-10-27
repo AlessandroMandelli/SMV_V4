@@ -1,4 +1,4 @@
-# Schede Restauro 3.2
+# Schede Restauro 3.3
 
 PWA per la schedatura del Sacro Monte di Varese. Versione del 27 ottobre 2026, basata sulle funzionalità della 2.9 con un motore PDF interamente riscritto secondo il Word commentato.
 
@@ -6,11 +6,11 @@ PWA per la schedatura del Sacro Monte di Varese. Versione del 27 ottobre 2026, b
 
 1. Estrai lo ZIP e copia tutto il contenuto nella radice della repository, sostituendo i file della versione precedente.
 2. Pubblica il branch utilizzato con GitHub Pages, cartella `/ (root)`.
-3. Attendi il completamento della pubblicazione e riapri la PWA. La cache viene aggiornata alla versione 3.2.
+3. Attendi il completamento della pubblicazione e riapri la PWA. La cache viene aggiornata alla versione 3.3.
 
 Il pacchetto funziona già compilato. Per pubblicarlo non servono Node, npm, server applicativi o chiavi API. Mantieni integralmente le cartelle `assets`, `js` e `vendor` e il file `app.bundle.js`. Non cancellare i dati del browser per aggiornare: contengono la bozza.
 
-## PDF della versione 3.2
+## PDF della versione 3.3
 
 Il PDF viene disegnato direttamente con testo, tabelle, riquadri e checkbox nativi. Non vengono incorporate o mascherate intere pagine del vecchio modello e non vengono utilizzati sfondi a tutta pagina. Etichette e valori rimangono testo selezionabile e modificabile.
 
@@ -25,16 +25,12 @@ Il PDF viene disegnato direttamente con testo, tabelle, riquadri e checkbox nati
 - Con urgenza ALTO, le tempistiche sono Monitoraggio, Immediato, 3 mesi e 6 mesi. Negli altri casi rimangono le opzioni già concordate.
 - Atlante vuoto: solo il titolo, dopo i contenuti precedenti quando c'è spazio. Con immagini: massimo quattro per pagina, proporzioni conservate e nessuna didascalia aggiunta. Il titolo appare soltanto all'inizio dell'atlante.
 - Intestazioni, dati fissi e titoli Interventi eseguiti / Azioni preventive restano presenti. Campi, checkbox e note opzionali compaiono solo con dati.
-- Gli interventi eseguiti scorrono uno dopo l'altro, anche quando hanno date diverse; un salto pagina avviene solo per spazio insufficiente. Ogni voce resta insieme quando entra in una pagina. Le date dei singoli interventi risolti sono riportate accanto alla rispettiva voce, senza riportare Eseguiti in data accanto al logo. Per gli interventi manuali la data comune inserita in compilazione viene stampata accanto alla rispettiva voce.
+- Gli interventi eseguiti scorrono uno dopo l'altro, anche quando hanno date diverse; un salto pagina avviene solo per spazio insufficiente. Ogni voce resta insieme quando entra in una pagina. Le date dei singoli interventi risolti sono riportate accanto alla rispettiva voce, senza riportare Eseguiti in data accanto al logo.
 - Le righe risolte passano alla manutenzione immediata con Macro-Area e data collegate; Azioni condotte in loco resta libera. Le righe risolte sono escluse dalla prevenzione.
 - Data e Ora sono etichette in grassetto nelle intestazioni. Anche Data e Azione nello storico sono in grassetto; i titoli e i campi dello storico condividono lo stesso margine sinistro. Gli indirizzi email e PEC mantengono il colore degli altri testi.
-- In compilazione Eseguiti in data resta un campo data. Soltanto le date dello storico sono testo libero.
+- Il campo comune Eseguiti in data non compare nella compilazione del registro né nell'intestazione del PDF. Restano le date dei singoli interventi provenienti dalla diagnostica. Le date dello storico sono testo libero.
 
-## PDF di prova e dati riproducibili
-
-La consegna comprende un PDF di prova di 12 pagine, compilato con dati e immagini dimostrativi. Il relativo JSON si trova in `tools/Scheda_prova_v3_2.json`: puoi selezionarlo con **Importa JSON** nella home per riprodurre la stessa scheda, modificarla e generarne il PDF.
-
-I dati dimostrativi non costituiscono diagnosi o documentazione di interventi reali. Le cinque immagini numerate servono a verificare impaginazione e proporzioni dell'atlante.
+Il pacchetto di distribuzione non contiene il JSON di prova. I file JSON necessari al funzionamento dell'app restano inclusi.
 
 ## Compilazione, bozza e file
 

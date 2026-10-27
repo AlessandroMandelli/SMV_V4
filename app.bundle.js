@@ -1,4 +1,4 @@
-/* Schede Restauro 3.2 — generato dai sorgenti modulari in js/. */
+/* Schede Restauro 3.3 — generato dai sorgenti modulari in js/. */
 (() => {
   // recovered-smv/js/road.js
   var ROAD_SIZE = { width: 654, height: 1190 };
@@ -1860,7 +1860,7 @@
     report.finish();
     pdf.setTitle(baseName(state2, assets2));
     pdf.setAuthor(COMMON.company);
-    pdf.setCreator("Schede Restauro 3.2");
+    pdf.setCreator("Schede Restauro 3.3");
     return new Blob([await pdf.save()], { type: "application/pdf" });
   }
 
@@ -2179,7 +2179,7 @@
     return `<h1>Atlante fotografico</h1>${band("6. ATLANTE FOTOGRAFICO")}<div class="photo-actions"><button type="button" data-action="camera" class="primary">Scatta foto</button><button type="button" data-action="photos">Carica foto</button></div><div class="photo-grid">${state.photos.map((p, i) => `<article class="photo-card"><img src="${escape(p.data)}" alt="Fotografia ${i + 1}"><div><span>Foto ${i + 1}</span>${removeButton("remove-photo", i)}</div></article>`).join("")}</div>${!state.photos.length ? '<p class="empty">Aggiungi le fotografie del sopralluogo.</p>' : ""}`;
   }
   function immediateSection() {
-    return `<h1>Registro interventi di manutenzione immediata</h1>${sharedHeader("immediate.date")}${field("Eseguiti in data", "immediate.executedDate", { type: "date" })}${band("INTERVENTI ESEGUITI")}${state.diagnosis.map((r, i) => r.resolvedDate ? `<article class="repeat-card"><div class="card-top"><h3>Intervento dalla diagnostica \xB7 ${i + 1}</h3></div>${fixedField("Macro-Area", r.area)}${fixedField("Eseguito in data", r.resolvedDate)}${field("Azioni condotte in loco", `diagnosis.${i}.resolvedAction`, { wide: true, multiline: true })}</article>` : "").join("")}${state.immediate.records.map((r, i) => `<article class="repeat-card"><div class="card-top"><h3>Intervento \xB7 ${i + 1}</h3></div><div class="fields">${field("Macro-Area", `immediate.records.${i}.area`, { wide: true })}${field("Azioni condotte in loco", `immediate.records.${i}.action`, { wide: true, multiline: true })}</div></article>`).join("")}${repeatActions("Aggiungi intervento", "Rimuovi intervento", "add-immediate", "remove-immediate", state.immediate.records.length)}<div class="wide-note">${field("Note aggiuntive", "immediate.notes", { multiline: true })}</div>`;
+    return `<h1>Registro interventi di manutenzione immediata</h1>${sharedHeader("immediate.date")}${band("INTERVENTI ESEGUITI")}${state.diagnosis.map((r, i) => r.resolvedDate ? `<article class="repeat-card"><div class="card-top"><h3>Intervento dalla diagnostica \xB7 ${i + 1}</h3></div>${fixedField("Macro-Area", r.area)}${fixedField("Eseguito in data", r.resolvedDate)}${field("Azioni condotte in loco", `diagnosis.${i}.resolvedAction`, { wide: true, multiline: true })}</article>` : "").join("")}${state.immediate.records.map((r, i) => `<article class="repeat-card"><div class="card-top"><h3>Intervento \xB7 ${i + 1}</h3></div><div class="fields">${field("Macro-Area", `immediate.records.${i}.area`, { wide: true })}${field("Azioni condotte in loco", `immediate.records.${i}.action`, { wide: true, multiline: true })}</div></article>`).join("")}${repeatActions("Aggiungi intervento", "Rimuovi intervento", "add-immediate", "remove-immediate", state.immediate.records.length)}<div class="wide-note">${field("Note aggiuntive", "immediate.notes", { multiline: true })}</div>`;
   }
   function preventiveSection() {
     const pending = state.diagnosis.map((r, i) => ({ ...r, index: i })).filter((r) => !r.resolvedDate);
