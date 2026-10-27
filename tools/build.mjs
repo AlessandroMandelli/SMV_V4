@@ -22,7 +22,7 @@ await build({
   outfile: resolve(root, "app.bundle.js"),
   minify: false,
   banner: {
-    js: "/* Schede Restauro 3.2 — generato dai sorgenti modulari in js/. */",
+    js: "/* Schede Restauro 3.3 — generato dai sorgenti modulari in js/. */",
   },
 });
 const files = [];
@@ -44,7 +44,7 @@ async function walk(dir) {
 await walk(root);
 files.sort();
 const sw = `/* Cache isolata per il percorso della PWA. */
-const VERSION='3.2.0';
+const VERSION='3.3.0';
 const PREFIX='schede-restauro:'+self.registration.scope+':';
 const CACHE=PREFIX+VERSION;
 const FILES=${JSON.stringify(["./", ...files], null, 2)};
